@@ -83,7 +83,7 @@ public class UsuarioDAOImpl implements IUsuarioDAO, Serializable {
 		} catch (Exception e) {
 			throw e;
 		}
-		return usuario != null && usuario.getId() != null ? usuario.getContrasena() : "";
+		return usuario != null && usuario.getId() != null ? usuario.getContrasena() : "$2y$12$BkSuESEFvw5Ce2jQnWkr/eD2CH/9mVwPpV2s8LQL9PeW6xAOs3R9.";
 	}
 
 	@Override

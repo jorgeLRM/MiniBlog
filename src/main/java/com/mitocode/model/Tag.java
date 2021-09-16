@@ -25,6 +25,13 @@ public class Tag implements Serializable {
 	
 	@Column(name = "texto", length = 50)
 	private String texto;
+	
+	public Tag() {}
+	
+	public Tag(Publicacion publicacion, String texto) {
+		this.publicacion = publicacion;
+		this.texto = texto;
+	}
 
 	public Integer getId() {
 		return id;

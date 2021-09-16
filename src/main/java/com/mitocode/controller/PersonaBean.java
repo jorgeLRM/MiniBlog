@@ -34,6 +34,7 @@ public class PersonaBean implements Serializable {
 	public void init() {
 		this.persona = new Persona();
 		this.listar();
+		this.tipoDialog = "Nuevo";
 	}
 	
 	public void handleFileUpload(FileUploadEvent event) {
@@ -77,12 +78,12 @@ public class PersonaBean implements Serializable {
 	
 	public void mostrarData(Persona p) {
 		this.persona = p;
-		this.tipoDialog = "Modificar Persona";
+		this.tipoDialog = "Modificar";
 	}
 	
 	public void limpiarControles() {
 		this.persona = new Persona();
-		this.tipoDialog = "Nueva Persona";
+		this.tipoDialog = "Nuevo";
 	}
 	
 	/**

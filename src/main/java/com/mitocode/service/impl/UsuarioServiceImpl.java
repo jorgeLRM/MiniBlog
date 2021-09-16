@@ -19,11 +19,15 @@ public class UsuarioServiceImpl implements IUsuarioService, Serializable {
 	public Usuario login(Usuario us) {
 		String clave = us.getContrasena();
 		String claveHash = dao.traerPassHashed(us.getUsuario());
-		
-		if (BCrypt.checkpw(clave, claveHash)) {
-			return dao.leerPorNombreUsuario(us.getUsuario());
+
+		try {
+			if (BCrypt.checkpw(clave, claveHash)) {
+				return dao.leerPorNombreUsuario(us.getUsuario());
+			}
+		} catch (Exception e) {
+			throw e;
 		}
-		
+
 		return new Usuario();
 	}
 

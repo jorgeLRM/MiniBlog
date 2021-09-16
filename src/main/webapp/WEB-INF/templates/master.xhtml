@@ -8,6 +8,14 @@
 <h:head>
 <h:outputStylesheet library="css" name="estilos.css"/>
 <title><ui:insert name="titulo">MiniBlog - Inicio</ui:insert></title>
+<f:event listener="#{masterBean.verificarSesion()}" type="preRenderView"></f:event>
+<script type="text/javascript">
+	function mostrar(message, channel, event){
+		setTimeout(function(){
+			document.getElementById('form:hdnBtn').click();
+		}, 1000);
+	}
+</script>
 </h:head>
 
 <body class="resolucion">
@@ -29,6 +37,10 @@
 			</p:submenu>
 			
 			<p:menuitem icon="ui-icon-print" value="Seguidores" url="/protegido/rep_seguidores.xhtml"  />
+			
+			<f:facet name="options">
+				<p:commandButton icon="ui-icon-power" actionListener="#{masterBean.cerrarSesion()}" url="/index.html"></p:commandButton>
+			</f:facet>
 		</p:menubar>
 	</ui:insert>
 	<ui:insert name="content"></ui:insert>

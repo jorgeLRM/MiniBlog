@@ -20,7 +20,7 @@
 					<h:inputText id="txtLogin" required="true" value="#{indexBean.us.usuario}"/>
 					
 					<p:outputLabel for="txtContrasena" value="Contraseña:"/>
-					<h:inputSecret id="txtContrasena" required="#{indexBean.us.contrasena}" />
+					<h:inputSecret id="txtContrasena" value="#{indexBean.us.contrasena}" required="true" />
 				</h:panelGrid>
 				
 				<p:commandButton value="Login" action="#{indexBean.login()}"/>
