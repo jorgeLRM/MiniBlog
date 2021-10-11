@@ -3,7 +3,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head></h:head>
 <body>
@@ -14,7 +14,8 @@
 			<h:form>
 				<p:growl id="msgs" showDetail="true" autoUpdate="true" />
 
-				<p:dataTable value="#{rolBean.lista}" var="e" editable="true">
+				<p:dataTable id="dt" value="#{rolBean.lista}" var="e"
+					editable="true">
 
 					<p:ajax event="rowEdit" listener="#{rolBean.onRowEdit}" />
 
@@ -37,11 +38,27 @@
 
 					</p:column>
 
-					<p:column style="width: 32px">
+					<p:column style="width: 32px" exportable="false">
 						<p:rowEditor />
 					</p:column>
 
 				</p:dataTable>
+
+				<h:commandLink value="Excel" ajax="false">
+					<p:dataExporter type="xls" target="dt" fileName="personas" />
+				</h:commandLink>
+
+				<h:commandLink value="PDF" ajax="false">
+					<p:dataExporter type="pdf" target="dt" fileName="personas" />
+				</h:commandLink>
+
+				<h:commandLink value="CSV">
+					<p:dataExporter type="csv" target="dt" fileName="personas" pageOnly="true" />
+				</h:commandLink>
+
+				<h:commandLink value="XML">
+					<p:dataExporter type="xml" target="dt" fileName="personas" pageOnly="true" />
+				</h:commandLink>
 			</h:form>
 		</ui:define>
 
